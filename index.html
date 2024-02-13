@@ -1,5 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+<style>
+    body {
+        font-size: 1.3rem;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    button {
+        display: inline-block;
+        padding: 5px 8px;
+        font-size: 20px;
+    }
+</style>
 
 <head>
     <meta charset="UTF-8">
@@ -9,44 +24,45 @@
 
 <body>
     <div>
-       <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo deleniti veniam tenetur incidunt sint cum saepe,
-        alias laborum repellat fugiat dolorum facilis autem sunt? Repellat at odio quisquam alias tempore.</p>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo deleniti veniam tenetur incidunt sint cum
+            saepe,
+            alias laborum repellat fugiat dolorum facilis autem sunt? Repellat at odio quisquam alias tempore.</p>
         <button id="start">Start</button>
         <button id="stop">Stop</button>
     </div>
 </body>
 <script>
-// generate a random color
-const randomColor = function(){
-    const hex = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i<6; i++){
-        color += hex[Math.floor(Math.random()*16)];
-    }
-    return color;
-};
+    // generate a random color
+    const randomColor = function () {
+        const hex = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += hex[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    };
 
-let intervalId;
-const startChangingColor = function () {
-if(!intervalId){
-    intervalId = setInterval(changeBgColor, 100)
-}
+    let intervalId;
+    const startChangingColor = function () {
+        if (!intervalId) {
+            intervalId = setInterval(changeBgColor, 100)
+        }
 
-function changeBgColor(){
-    document.body.style.backgroundColor = randomColor();
-}
-    
-};
-const stopChangingColor = function () {
-    clearInterval(intervalId)
-    intervalId = null;
-};
+        function changeBgColor() {
+            document.body.style.backgroundColor = randomColor();
+        }
 
-document.querySelector('#start').addEventListener
-('click', startChangingColor);
+    };
+    const stopChangingColor = function () {
+        clearInterval(intervalId)
+        intervalId = null;
+    };
 
-document.querySelector('#stop').addEventListener
-('click', stopChangingColor);
+    document.querySelector('#start').addEventListener
+        ('click', startChangingColor);
+
+    document.querySelector('#stop').addEventListener
+        ('click', stopChangingColor);
 </script>
 
 </html>
